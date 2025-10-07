@@ -2,12 +2,12 @@ import streamlit as st
 from openai import OpenAI
 # === CẤU HÌNH CƠ BẢN ===
 client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
-st.set_page_config(page_title="Trợ lý Agribank 24/7", page_icon="💬", layout="centered")
+st.set_page_config(page_title="Trợ lý ảo Agribank chi nhánh Bắc Đắk Lắk", page_icon="💬", layout="centered")
 
 # === GIAO DIỆN PHẦN ĐẦU ===
 st.image("https://upload.wikimedia.org/wikipedia/commons/3/34/Agribank_logo.svg", width=120)
 st.title("Trợ lý Agribank 24/7")
-st.markdown("#### 💬 Trợ lý Agribank thân thiện, chuyên nghiệp, tư vấn dịch vụ và hỗ trợ khách hàng 24/7.")
+st.markdown("#### 💬 Trợ lý Agribank Bắc Đắk Lắk thân thiện, chuyên nghiệp, tư vấn dịch vụ và hỗ trợ khách hàng 24/7.")
 st.divider()
 
 # === NÚT GỢI Ý CHỦ ĐỀ ===
@@ -53,6 +53,7 @@ if user_input or "preset" in st.session_state:
 for msg in st.session_state.messages[1:]:
     with st.chat_message(msg["role"]):
         st.markdown(msg["content"])
+
 
 
 
