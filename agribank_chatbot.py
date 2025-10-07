@@ -1,9 +1,7 @@
 import streamlit as st
 from openai import OpenAI
-import os
 # === CẤU HÌNH CƠ BẢN ===
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-
+client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 st.set_page_config(page_title="Trợ lý Agribank 24/7", page_icon="💬", layout="centered")
 
 # === GIAO DIỆN PHẦN ĐẦU ===
@@ -55,4 +53,5 @@ if user_input or "preset" in st.session_state:
 for msg in st.session_state.messages[1:]:
     with st.chat_message(msg["role"]):
         st.markdown(msg["content"])
+
 
