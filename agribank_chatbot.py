@@ -43,7 +43,7 @@ if user_input or "preset" in st.session_state:
 
     st.session_state.messages.append({"role": "user", "content": user_input})
     response = client.chat.completions.create(
-        model="gpt-5",
+        model="gpt-4o-mini",
         messages=st.session_state.messages
     )
     reply = response.choices[0].message.content
@@ -53,5 +53,6 @@ if user_input or "preset" in st.session_state:
 for msg in st.session_state.messages[1:]:
     with st.chat_message(msg["role"]):
         st.markdown(msg["content"])
+
 
 
